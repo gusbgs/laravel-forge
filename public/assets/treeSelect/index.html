@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Hierarchical Searchable Tree Example</title>
+  <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.3.1/journal/bootstrap.min.css">
+  <link href="simpleTree.css" rel="stylesheet">
+  <style>
+  body { background-color: #fafafa; font-family: 'Roboto'; }
+  .container { margin: 150px auto; }
+  #mytree { margin: 20px auto; }
+  </style>
+</head>
+
+<body><div id="jquery-script-menu">
+  <div class="jquery-script-center">
+    <ul>
+      <li><a href="https://www.jqueryscript.net/other/hierarchical-searchable-tree.html">Download This Plugin</a></li>
+      <li><a href="https://www.jqueryscript.net/">Back To jQueryScript.Net</a></li>
+    </ul>
+    <div class="jquery-script-ads"><script type="text/javascript"><!--
+    google_ad_client = "ca-pub-2783044520727903";
+    /* jQuery_demo */
+    google_ad_slot = "2780937993";
+    google_ad_width = 728;
+    google_ad_height = 90;
+    //-->
+    </script>
+    <script type="text/javascript"
+    src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+  </script></div>
+  <div class="jquery-script-clear"></div>
+</div>
+</div>
+<div class="container">
+  <h1>Hierarchical Searchable Tree Example</h1>
+  <input type="search" id="example" class="form-control">
+  <div id="mytree"></div>
+  <p><button onclick="$('#mytree').data('simpleTree').expandAll()" class="btn btn-primary">Expand All</button></p>
+  <p><button onclick="console.log($('#mytree').data('simpleTree').getSelectedNode())" class="btn btn-primary">Get Selected Node (See Console Log)</button></p>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="simpleTree.js"></script>
+<script>
+let data = [
+  {
+    label: 'HTML',
+    value: 'html',
+    children: [
+    {
+      label: 'HTML5',
+      value: 'html5'
+    }, {
+      label: 'XML',
+      value: 'xml'
+    }
+    ]
+  }, {
+    label: 'JavaScript',
+    value: 'javaScript',
+    children: [
+    {
+      label: 'React',
+      value: 'react',
+      children: [
+      {
+        label: 'React Native',
+        value: 'reactnative'
+      }
+      ]
+    }, {
+      label: 'Angular',
+      value: 'angular'
+    }
+    ]
+  }
+  ];
+
+  var options = {
+    // Optionally provide here the jQuery element that you use as the search box for filtering the tree. simpleTree then takes control over the provided box, handling user input
+    searchBox: $('#example'),
+
+    // Search starts after at least 3 characters are entered in the search box
+    searchMinInputLength: 2,
+
+    // Number of pixels to indent each additional nesting level
+    indentSize: 25,
+
+    // Show child count badges?
+    childCountShow: true,
+
+    // Symbols for expanded and collapsed nodes that have child nodes
+    symbols: {
+      collapsed: '▶',
+      expanded: '▼'
+    },
+
+    // these are the CSS class names used on various occasions. If you change these names, you also need to provide the corresponding CSS class
+    css: {
+      childrenContainer: 'simpleTree-childrenContainer',
+      childCountBadge: 'simpleTree-childCountBadge badge badge-pill badge-secondary',
+      highlight: 'simpleTree-highlight',
+      indent: 'simpleTree-indent',
+      label: 'simpleTree-label',
+      mainContainer: 'simpleTree-mainContainer',
+      nodeContainer: 'simpleTree-nodeContainer',
+      selected: 'simpleTree-selected',
+      toggle: 'simpleTree-toggle'
+    }
+  };
+  $('#mytree').simpleTree(options, data);
+</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>
